@@ -11,6 +11,7 @@ import QuartzCore
 import SceneKit
 
 class GameViewController: UIViewController {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +56,7 @@ class GameViewController: UIViewController {
         ship.addAnimation(positionAnimation, forKey: "position.y")
         
         // retrieve the SCNView
-        let scnView = self.view as! SCNView
+        let scnView = self.view.subviews[0] as! SCNView
         
         // set the scene to the view
         scnView.scene = scene
@@ -72,12 +73,25 @@ class GameViewController: UIViewController {
         // add a tap gesture recognizer
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         scnView.addGestureRecognizer(tapGesture)
+        
+        // play the scene
+        // scnView.isPlaying = true
+    }
+    
+    // MARK: Actions
+    
+    // use slider to conrol scene time
+    @IBAction func updateSceneTime(_ sender: UISlider) {
+        //print("scene time updated")
+        // retrieve the SCNView
+        let scnView = self.view.subviews[0] as! SCNView
+        scnView.sceneTime = Double(sender.value * 5)
     }
     
     @objc
     func handleTap(_ gestureRecognize: UIGestureRecognizer) {
         // retrieve the SCNView
-        let scnView = self.view as! SCNView
+        let scnView = self.view.subviews[0] as! SCNView
         
         // check what nodes are tapped
         let p = gestureRecognize.location(in: scnView)
