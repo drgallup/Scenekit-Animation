@@ -43,8 +43,16 @@ class GameViewController: UIViewController {
         // retrieve the ship node
         let ship = scene.rootNode.childNode(withName: "ship", recursively: true)!
         
-        // animate the 3d object
-        ship.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: 2, z: 0, duration: 1)))
+        // define the animation
+        //ship.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: 2, z: 0, duration: 1)))
+        let positionAnimation = CAKeyframeAnimation(keyPath: "position.y")
+        positionAnimation.values = [0, 2, -2, 0]
+        positionAnimation.keyTimes = [0, 1, 3, 4]
+        positionAnimation.duration = 5
+        positionAnimation.usesSceneTimeBase = true
+        
+        // add the animation
+        ship.addAnimation(positionAnimation, forKey: "position.y")
         
         // retrieve the SCNView
         let scnView = self.view as! SCNView
