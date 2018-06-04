@@ -15,6 +15,7 @@
 		1D00C5DB20C1AD2900CA2B74 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D00C5D920C1AD2900CA2B74 /* LaunchScreen.storyboard */; };
 		1D00C5E620C1AD2900CA2B74 /* Scenekit_AnimationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D00C5E520C1AD2900CA2B74 /* Scenekit_AnimationTests.swift */; };
 		1D00C5F120C1AD2900CA2B74 /* Scenekit_AnimationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D00C5F020C1AD2900CA2B74 /* Scenekit_AnimationUITests.swift */; };
+		1D00C5FF20C1C71700CA2B74 /* InterfaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D00C5FE20C1C71700CA2B74 /* InterfaceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		1D00C5EC20C1AD2900CA2B74 /* Scenekit-AnimationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Scenekit-AnimationUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D00C5F020C1AD2900CA2B74 /* Scenekit_AnimationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scenekit_AnimationUITests.swift; sourceTree = "<group>"; };
 		1D00C5F220C1AD2900CA2B74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D00C5FE20C1C71700CA2B74 /* InterfaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				1D00C5CE20C1AD2800CA2B74 /* AppDelegate.swift */,
 				1D00C5D020C1AD2800CA2B74 /* art.scnassets */,
 				1D00C5D220C1AD2800CA2B74 /* GameViewController.swift */,
+				1D00C5FE20C1C71700CA2B74 /* InterfaceViewController.swift */,
 				1D00C5D420C1AD2800CA2B74 /* Main.storyboard */,
 				1D00C5D720C1AD2900CA2B74 /* Assets.xcassets */,
 				1D00C5D920C1AD2900CA2B74 /* LaunchScreen.storyboard */,
@@ -262,6 +265,7 @@
 			files = (
 				1D00C5D320C1AD2800CA2B74 /* GameViewController.swift in Sources */,
 				1D00C5CF20C1AD2800CA2B74 /* AppDelegate.swift in Sources */,
+				1D00C5FF20C1C71700CA2B74 /* InterfaceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

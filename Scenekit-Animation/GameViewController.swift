@@ -5,12 +5,13 @@
 //  Created by Dylan Gallup on 6/1/18.
 //  Copyright © 2018 Dylan Gallup. All rights reserved.
 //
+//  Test Push to GitLab
 
 import UIKit
 import QuartzCore
 import SceneKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, SCNSceneRendererDelegate {
     
 
     override func viewDidLoad() {
@@ -50,14 +51,18 @@ class GameViewController: UIViewController {
         positionAnimation.values = [0, 2, -2, 0]
         positionAnimation.keyTimes = [0, 1, 3, 4]
         positionAnimation.duration = 5
-        positionAnimation.usesSceneTimeBase = true
         
-        // add the animation
-        ship.addAnimation(positionAnimation, forKey: "position.y")
+        // convert to scene animation
+        let posAnim = SCNAnimation(caAnimation: positionAnimation)
+        posAnim.usesSceneTimeBase = true
         
         // retrieve the SCNView
-        let scnView = self.view.subviews[0] as! SCNView
+        let scnView = self.view as! SCNView
+        scnView.delegate = self
         
+        // add the animation
+        ship.addAnimation(posAnim, forKey: "position.y")
+
         // set the scene to the view
         scnView.scene = scene
         
@@ -75,23 +80,25 @@ class GameViewController: UIViewController {
         scnView.addGestureRecognizer(tapGesture)
         
         // play the scene
-        // scnView.isPlaying = true
+        scnView.isPlaying = true
+        //scnView.loops = true
     }
     
     // MARK: Actions
     
-    // use slider to conrol scene time
-    @IBAction func updateSceneTime(_ sender: UISlider) {
-        //print("scene time updated")
+    /* use slider to control scene time
+    @IBAction func updateScnTime(_ sender: UISlider) {
         // retrieve the SCNView
         let scnView = self.view.subviews[0] as! SCNView
         scnView.sceneTime = Double(sender.value * 5)
-    }
+        print(scnView.sceneTime)
+    }*/
     
     @objc
     func handleTap(_ gestureRecognize: UIGestureRecognizer) {
         // retrieve the SCNView
-        let scnView = self.view.subviews[0] as! SCNView
+        let scnView = self.view as! SCNView
+        print(scnView.sceneTime)
         
         // check what nodes are tapped
         let p = gestureRecognize.location(in: scnView)
